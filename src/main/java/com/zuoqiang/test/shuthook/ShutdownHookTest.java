@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 测试 ShutdownHook
+ * 1）直接杀掉程序; 2)正常退出的时候; 3)抛出异常的时候
  * @author zuoqiang
  */
 
