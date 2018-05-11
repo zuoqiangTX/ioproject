@@ -25,6 +25,11 @@
             <artifactId>spring-core</artifactId>
             <version>3.2.8.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.0.25.Final</version>
+        </dependency>
         <!--<dependency>
             <groupId>com.tongbanjie.commons</groupId>
             <artifactId>commons</artifactId>
