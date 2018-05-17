@@ -15,7 +15,13 @@ public class Slf4jTest {
         LOGGER.warn("warn log");
         LOGGER.debug("debug log");
         LOGGER.info("info log");
-        LOGGER.error("error log");
+        int b = 1;
+        try {
+            int a = b / 0;
+        } catch (Exception e) {
+            //对于异常，是不需要占位符的，而且也不需要e.getMessage()，直接打印出来即可
+            LOGGER.error("error,data = {} ,err =", b, e);
+        }
     }
 
     private static void test() {
