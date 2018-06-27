@@ -1,3 +1,4 @@
+import com.tongbanjie.commons.util.StringUtil;
 import org.apache.commons.lang3.time.StopWatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -5,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CallableTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(CallableTest.class);
@@ -17,13 +19,30 @@ public class CallableTest {
     private final static long KEEP_ALIVE_TIME = 30L;
     private final static int QUEUE_SIZE = 2000;
 
+    private static ThreadFactory factory = new ThreadFactory() {
+        private final AtomicInteger COUNT = new AtomicInteger();
+
+        public Thread newThread(Runnable r) {
+            return new Thread(r, String.format("线程池-第%s线程", COUNT.getAndIncrement()));
+        }
+    };
+
+
     static {
         executorService = new ThreadPoolExecutor(
                 CORE_POOL_SIZE,
                 MAX_POOL_SIZE,
                 KEEP_ALIVE_TIME,
                 TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<Runnable>(QUEUE_SIZE));
+                new LinkedBlockingQueue<Runnable>(QUEUE_SIZE), factory
+        );
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                executorService.shutdown();
+                LOGGER.info("{}关闭线程池！", Thread.currentThread().getName());
+            }
+        }, String.format("ThreadPoolExecutor-ShutdownHook")));
         ((ThreadPoolExecutor) executorService).allowCoreThreadTimeOut(true);
     }
 
@@ -71,12 +90,13 @@ public class CallableTest {
         public Boolean call() throws Exception {
             Boolean flag = true;
             //模拟任务执行1秒
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.MILLISECONDS.sleep(1000);
             if (num == 2) {
-                throw new RuntimeException("内部任务错误");
+                throw new RuntimeException(String.format("{}:任务{}内部任务错误", Thread.currentThread().getName(), num));
             } else if (num == 7) {
                 int a = 1 / 0;
             }
+            LOGGER.info("{}:任务{}执行成功", Thread.currentThread().getName(), num);
             return flag;
 
         }
