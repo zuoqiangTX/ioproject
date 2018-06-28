@@ -15,6 +15,7 @@ public class Slf4jTest {
         LOGGER.warn("warn log");
         LOGGER.debug("debug log");
         LOGGER.info("info log");
+        testNewWrite();
         int b = 1;
         try {
             int a = b / 0;
@@ -22,6 +23,14 @@ public class Slf4jTest {
             //对于异常，是不需要占位符的，而且也不需要e.getMessage()，直接打印出来即可
             LOGGER.error("error,data = {} ,err =", b, e);
         }
+    }
+
+    private static void testNewWrite() {
+        Object result = null;
+        //null的时候，不会报空指针错误。
+        LOGGER.info(">>>>类名#方法名>>>>result:{},userId:{}", new Object[]{result, "1111"});
+        //下面这种也不会报空指针错误。
+        LOGGER.info(">>>>类名#方法名>>>>result:{},userId:{}", result, "1111");
     }
 
     private static void test() {
