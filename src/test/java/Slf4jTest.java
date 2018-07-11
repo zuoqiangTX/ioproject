@@ -1,3 +1,4 @@
+import com.tongbanjie.commons.lang.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StopWatch;
@@ -8,6 +9,9 @@ public class Slf4jTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(Slf4jTest.class);
 
     public static void main(String[] args) {
+        Object o = null;
+        LOGGER.info("空指针不报错误: {}", o);
+
         LOGGER.info("Current Time: {}", System.currentTimeMillis());
         LOGGER.info("Current Time: " + System.currentTimeMillis());
         LOGGER.info("Current Time: {}", System.currentTimeMillis());
@@ -26,11 +30,15 @@ public class Slf4jTest {
     }
 
     private static void testNewWrite() {
-        Object result = null;
+        boolean result = false;
         //null的时候，不会报空指针错误。
         LOGGER.info(">>>>类名#方法名>>>>result:{},userId:{}", new Object[]{result, "1111"});
         //下面这种也不会报空指针错误。
         LOGGER.info(">>>>类名#方法名>>>>result:{},userId:{}", result, "1111");
+        Result<Boolean> booleanResult = new Result<>();
+        Result.buildFail("404");
+        LOGGER.info(">>>>错误>>>>>result:{},userId:{}", new Object[]{booleanResult, "1111"});
+
     }
 
     private static void test() {

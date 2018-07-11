@@ -1,3 +1,4 @@
+import com.tongbanjie.commons.lang.Result;
 import com.tongbanjie.commons.model.BaseQuery;
 import org.springframework.util.CollectionUtils;
 
@@ -5,17 +6,32 @@ import java.util.ArrayList;
 
 public class OtherTest {
     public static void main(String[] args) {
-      /*  ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
         System.out.println("测试判空结果为:" + list.size() + "result :" + CollectionUtils.isEmpty(list));
         while (true) {
             if (2 == 1) {
                 break;
             }
         }
-        System.out.println("执行一下！证明跳出循环");*/
-        //testQuery1();
-        testQuery2();
+        System.out.println("执行一下！证明跳出循环");
 
+        //testQuery1();
+        //testQuery2();
+        Result<Void> result = new Result<Void>();
+        String reqId = "1";
+        //test(reqId, result);
+        System.out.println("result的最终结果为" + result.isSuccess());
+
+
+    }
+
+    private static boolean test(String reqId, Result<Void> result) {
+        result.setSuccess(true);
+        result.setErrorMsg("已发送成功,无须重发");
+        if (result.isSuccess()) {
+            return false;
+        }
+        return true;
     }
 
     private static void testQuery2() {
