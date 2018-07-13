@@ -30,6 +30,11 @@
             <artifactId>netty-all</artifactId>
             <version>4.0.25.Final</version>
         </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>RELEASE</version>
+        </dependency>
         <!--<dependency>
             <groupId>com.tongbanjie.commons</groupId>
             <artifactId>commons</artifactId>
