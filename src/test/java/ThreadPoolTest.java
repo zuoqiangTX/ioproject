@@ -3,6 +3,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StopWatch;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadPoolTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(ThreadPoolTest.class);
@@ -27,7 +28,25 @@ public class ThreadPoolTest {
                 MAX_POOL_SIZE,
                 KEEP_ALIVE_TIME,
                 TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<Runnable>(QUEUE_SIZE));
+                new LinkedBlockingQueue<Runnable>(QUEUE_SIZE), new ThreadFactory() {
+            private static final String THREAD_FORAMT = "taskThread-%d";
+            private final AtomicInteger atomicInteger = new AtomicInteger();
+
+            @Override
+            public Thread newThread(Runnable r) {
+                String name = String.format(THREAD_FORAMT, atomicInteger.getAndIncrement());
+                return new Thread(r, name);
+            }
+        }, new RejectedExecutionHandler() {
+            @Override
+            public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+                try {
+                    executor.getQueue().put(r);
+                } catch (InterruptedException e) {
+                    LOGGER.error("线程被中断了！", e);
+                }
+            }
+        });
         ((ThreadPoolExecutor) executorService).allowCoreThreadTimeOut(true);
     }
 

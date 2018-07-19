@@ -3,10 +3,12 @@ import org.slf4j.LoggerFactory;
 
 public class DBTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(DBTest.class);
+
     public static void main(String[] args) {
         LOGGER.info("按照user_id分表[sharding-jdbc],建表语句正常，注意where条件中需要加入userid路由");
         for (int i = 0; i < 64; i++) {
-            printSub(i);
+            //printSub(i);
+            printMessage(i);
             System.out.println();
         }
     }
@@ -48,5 +50,18 @@ public class DBTest {
                 "  PRIMARY KEY (`id`),\n" +
                 "  UNIQUE KEY `serial_no` (`serial_no`) COMMENT '唯一单号'\n" +
                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='任务发放奖品主订单流水表';");
+    }
+
+    static void printMessage(int i) {
+        System.out.println("CREATE TABLE `ar_task_message_send_" + i + "` (\n" +
+                "  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',\n" +
+                "\t`type` tinyint(4) NOT NULL COMMENT '消息类型 1-系统消息 2-短信通知 3-推送',\n" +
+                "  `snapshot_id` bigint(20) NOT NULL COMMENT '镜像id',\n" +
+                "  `user_id` varchar(32) NOT NULL COMMENT '用户ID',\n" +
+                "  `create_time` datetime NOT NULL COMMENT '创建时间',\n" +
+                "  `modify_time` datetime DEFAULT NULL COMMENT '修改时间',\n" +
+                "  PRIMARY KEY (`id`),\n" +
+                "  UNIQUE KEY `user_send_uk` (`user_id`,`snapshot_id`,`type`) USING BTREE\n" +
+                ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='消息发送记录表';");
     }
 }
