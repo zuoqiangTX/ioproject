@@ -29,7 +29,7 @@ public class ThreadPoolTest {
                 KEEP_ALIVE_TIME,
                 TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<Runnable>(QUEUE_SIZE), new ThreadFactory() {
-            private static final String THREAD_FORAMT = "taskThread-%d";
+            private static final String THREAD_FORAMT = "ArTaskThread-%d";
             private final AtomicInteger atomicInteger = new AtomicInteger();
 
             @Override
