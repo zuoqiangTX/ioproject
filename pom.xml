@@ -35,6 +35,11 @@
             <artifactId>commons-lang</artifactId>
             <version>RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>RELEASE</version>
+        </dependency>
         <!--<dependency>
             <groupId>com.tongbanjie.commons</groupId>
             <artifactId>commons</artifactId>
