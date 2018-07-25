@@ -55,6 +55,13 @@
                 </exclusion>
             </exclusions>
         </dependency>-->
+        <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+        <!--Aapache RSA-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.11</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
