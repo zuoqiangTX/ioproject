@@ -32,6 +32,7 @@ public class Client {
         ChannelFuture cf1 = b.connect("127.0.0.1", 8765).sync();
         //发数据
         //buf,利用缓冲区去写
+//        cf1.channel().writeAndFlush(Unpooled.copiedBuffer("777".getBytes()));
         cf1.channel().write(Unpooled.copiedBuffer("777".getBytes()));
         cf1.channel().flush();
 

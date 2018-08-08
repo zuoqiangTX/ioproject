@@ -1,6 +1,9 @@
 package com.zuoqiang.test.socket.netty.discard;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.ReferenceCountUtil;
@@ -33,6 +36,12 @@ public class ServerHandler extends ChannelHandlerAdapter {
             buf.readBytes(bytes);
             String request = new String(bytes, "utf-8");
             LOGGER.info("服务器端收到" + request);
+
+            //写给客户端
+            String respsone = "888";
+            ctx.writeAndFlush(Unpooled.copiedBuffer(respsone.getBytes()))
+                    //发完主动断开TCP连接
+                    .addListener(ChannelFutureListener.CLOSE);
         } finally {
             ReferenceCountUtil.release(msg);
         }
