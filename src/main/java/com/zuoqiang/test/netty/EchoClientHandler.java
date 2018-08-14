@@ -31,15 +31,20 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
         ctx.close();
     }
 
-    /**
-     * 服务器接收到一条消息将被调用
-     *
-     * @param channelHandlerContext
-     * @param byteBuf
-     * @throws Exception
-     */
+//    /**
+//     * 服务器接收到一条消息将被调用
+//     *
+//     * @param channelHandlerContext
+//     * @param byteBuf
+//     * @throws Exception
+//     */
+//    @Override
+//    protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+//        System.out.println("客户端接收到消息" + byteBuf.toString(CharsetUtil.UTF_8));
+//    }
+
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
-        System.out.println("客户端接收到消息" + byteBuf.toString(CharsetUtil.UTF_8));
+    protected void messageReceived(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+
     }
 }
