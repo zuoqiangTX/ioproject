@@ -5,6 +5,11 @@ import org.I0Itec.zkclient.ZkClient;
 
 import java.util.List;
 
+/**
+ * 不需要自己实现（原生API）重复注册watch的机制呃,使用方便了很多
+ *
+ * @author zuoqiang
+ */
 public class ZkWatcherTest {
     /**
      * zookeeper地址
@@ -18,7 +23,7 @@ public class ZkWatcherTest {
     public static void main(String[] args) throws InterruptedException {
         ZkClient zkc = new ZkClient(CONNECT_ADDR, SESSION_OUTTIME);
 
-        //订阅子节点的变化
+        //订阅当前节点的子节点的变化新增或者删除，不监听子节点数据的变化
         zkc.subscribeChildChanges("/super", new IZkChildListener() {
             @Override
             public void handleChildChange(String parentPath, List<String> currentChilds) throws Exception {
@@ -32,11 +37,24 @@ public class ZkWatcherTest {
         zkc.createPersistent("/super");
         Thread.sleep(1000);
 
+        System.out.println("-------------");
+        //只监听节点的变化，不监听数据的变化
+        zkc.writeData("/super", "sssss");
+        Thread.sleep(1000);
+        System.out.println("-------------");
+
+
         zkc.createPersistent("/super" + "/" + "c1", "c1内容");
         Thread.sleep(1000);
 
         zkc.createPersistent("/super" + "/" + "c2", "c2内容");
         Thread.sleep(1000);
+
+        System.out.println("-------------");
+        //并不会监听子节点的update操作
+        zkc.writeData("/super" + "/" + "c1", "xxxxx");
+        Thread.sleep(1000);
+        System.out.println("-------------");
 
         zkc.delete("/super/c2");
         Thread.sleep(1000);
