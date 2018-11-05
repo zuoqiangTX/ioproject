@@ -1,4 +1,4 @@
-package com.zuoqiang.test.zk.curator;
+package com.zuoqiang.test.zk.curator.base;
 
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -85,16 +85,17 @@ public class ZkCuratorTest {
         Thread.sleep(Integer.MAX_VALUE);*/
 
         // 读取子节点getChildren方法 和 判断节点是否存在checkExists方法
-         List<String> list = cf.getChildren().forPath("/super");
-         for(String p : list){
-         System.out.println(p);
-         }
+        List<String> list = cf.getChildren().forPath("/super");
+        for (String p : list) {
+            System.out.println(p);
+        }
 
-         Stat stat = cf.checkExists().forPath("/super/c3");
-         System.out.println(stat);
+        //如果为null表示节点不存在
+        Stat stat = cf.checkExists().forPath("/super/c3");
+        System.out.println(stat);
 
-         Thread.sleep(2000);
-         cf.delete().guaranteed().deletingChildrenIfNeeded().forPath("/super");
+        Thread.sleep(2000);
+        cf.delete().guaranteed().deletingChildrenIfNeeded().forPath("/super");
 
         //cf.delete().guaranteed().deletingChildrenIfNeeded().forPath("/super");
 
