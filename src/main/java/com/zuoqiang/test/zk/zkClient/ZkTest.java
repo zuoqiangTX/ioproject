@@ -1,9 +1,7 @@
 package com.zuoqiang.test.zk.zkClient;
 
 import org.I0Itec.zkclient.ZkClient;
-import org.checkerframework.checker.units.qual.K;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class ZkTest {
