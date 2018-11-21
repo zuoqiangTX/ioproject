@@ -20,7 +20,7 @@ public class LockTest {
     /**
      * zookeeper地址
      */
-    static final String CONNECT_ADDR = "127.0.0.1:2181";
+    static final String CONNECT_ADDR = "192.168.85.2:2181";
     /**
      * session超时时间
      */
