@@ -6,10 +6,13 @@ public class DBTest {
 
     public static void main(String[] args) {
         LOGGER.info("按照user_id分表[sharding-jdbc],建表语句正常，注意where条件中需要加入userid路由");
-        for (int i = 0; i < 64; i++) {
-            //printSub(i);
-            printMessage(i);
-            System.out.println();
+//        for (int i = 0; i < 64; i++) {
+//            //printSub(i);
+//            printMessage(i);
+//            System.out.println();
+//        }
+        for (int i = 0; i < 32; i++) {
+            NewTest(i);
         }
     }
 
@@ -64,4 +67,27 @@ public class DBTest {
                 "  UNIQUE KEY `user_send_uk` (`user_id`,`snapshot_id`,`type`) USING BTREE\n" +
                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='消息发送记录表';");
     }
+
+    static void NewTest(int i) {
+        System.out.println("CREATE TABLE op_alliance.pisces_daily_gift_flow_" + i + " (\n" +
+                "  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',\n" +
+                "  `user_id` varchar(22) NOT NULL COMMENT '用户id',\n" +
+                "  `record_id` varchar(20) NOT NULL COMMENT '任务ID',\n" +
+                "  `gift_id` bigint(50) NOT NULL COMMENT '礼品包id',\n" +
+                "  `award_id` bigint(20) NOT NULL COMMENT '奖品id',\n" +
+                "  `seq_id` varchar(32) NOT NULL COMMENT '父订单ID',\n" +
+                "  `serial_no` varchar(32) NOT NULL COMMENT '唯一单号-发奖标识',\n" +
+                "  `status` tinyint(4) NOT NULL COMMENT '订单状态 2-处理中 1-成功 -1-失败',\n" +
+                "  `create_time` datetime NOT NULL COMMENT '创建时间',\n" +
+                "  `modify_time` datetime DEFAULT NULL COMMENT '修改时间',\n" +
+                "  `who_cost` varchar(60) NOT NULL COMMENT '成本归属',\n" +
+                "  `user_phone` varchar(22) NOT NULL COMMENT '用户手机号',\n" +
+                "  PRIMARY KEY (`id`),\n" +
+                "  UNIQUE KEY `unique_key` (`serial_no`) USING BTREE,\n" +
+                "  KEY `index_urg` (`user_id`,`record_id`,`gift_id`) USING BTREE,\n" +
+                "  KEY `index_seq` (`seq_id`) USING BTREE\n" +
+                ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='智能营销礼品包发放流水表';");
+    }
+
+
 }
