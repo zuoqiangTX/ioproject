@@ -1,4 +1,4 @@
-package com.zuoqiang.test.until;
+package com.zuoqiang.test.other;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;

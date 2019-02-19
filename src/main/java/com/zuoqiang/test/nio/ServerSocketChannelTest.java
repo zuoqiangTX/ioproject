@@ -8,7 +8,7 @@ import java.nio.channels.SocketChannel;
 /***
  * ServerSocketChannel服务端套接字通道
  * ServerSocketChannel是用于监听TCP链接请求的通道，正如Java网络编程中的ServerSocket一样.
- * @author tongbanjie
+ * @author baiyue
  */
 
 public class ServerSocketChannelTest {

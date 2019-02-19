@@ -5,7 +5,7 @@ import java.util.concurrent.Callable;
 /**
  * 抽象的任务提供者,负责为{@link EnhanceCompletionService}提供处理任务
  *
- * @author tongbanjie
+ * @author baiyue
  */
 public abstract class AbstractTaskProvider<V, S> {
 

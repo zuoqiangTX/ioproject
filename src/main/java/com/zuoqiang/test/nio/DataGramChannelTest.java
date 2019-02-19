@@ -9,7 +9,7 @@ import java.nio.channels.DatagramChannel;
  * DatagramChannel数据报通道
  * Java NIO DatagramChannel是一个可以发送、接收UDP数据包的通道。
  * 由于UDP是面向无连接的网络协议，我们不可用像使用其他通道一样直接进行读写数据。正确的做法是发送、接收数据包。
- * @author tongbanjie
+ * @author baiyue
  */
 
 public class DataGramChannelTest {

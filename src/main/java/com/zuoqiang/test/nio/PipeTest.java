@@ -9,7 +9,7 @@ import java.nio.channels.Pipe;
  * Pipe管道
  * 一个Java NIO的管道是两个线程间单向传输数据的连接。
  * 写入数据--->sink channel    source channel--->读取数据
- * @author tongbanjie
+ * @author baiyue
  */
 public class PipeTest {
     public static void main(String[] args) throws IOException {

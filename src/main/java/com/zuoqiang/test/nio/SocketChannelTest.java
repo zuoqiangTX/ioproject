@@ -8,7 +8,7 @@ import java.nio.channels.SocketChannel;
 /***
  * SocketChannel套接字通道
  * SocketChannel是用于TCP网络连接的套接字接口,相当于Java网络编程中的Socket套接字接口。
- * @author tongbanjie
+ * @author baiyue
  */
 public class SocketChannelTest {
     public static void main(String[] args) throws IOException {

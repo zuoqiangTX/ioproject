@@ -11,5 +11,7 @@ public class BTest {
         String bb = "1111X";
         System.out.println(StringUtils.equals(aa.toLowerCase(), bb.toLowerCase()));
 
+        String[] s = ",,".split(",");
+        System.out.println("length :" + s.length);
     }
 }
