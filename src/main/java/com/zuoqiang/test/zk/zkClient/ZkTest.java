@@ -48,7 +48,7 @@ public class ZkTest {
 
         //3. 更新和判断节点是否存在
 		zkClient.writeData("/super/c1", "新内容");
-		System.out.println(zkClient.readData("/super/c1"));
+//		System.out.println(zkClient.readData("/super/c1"));
 		System.out.println(zkClient.exists("/super/c1"));
 
         //4.递归删除/super内容

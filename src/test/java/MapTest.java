@@ -9,6 +9,40 @@ import java.util.Map;
  */
 public class MapTest {
     public static void main(String[] args) {
+//        testPutAll();
+        testPutIfAbsent();
+    }
+
+    /**
+     * 测试PutIfAbsent
+     */
+    private static void testPutIfAbsent() {
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "ZhangSan");
+        map.put(2, "LiSi");
+        //会覆盖旧的
+        map.put(1, "WangWu");
+        map.forEach((key, value) -> {
+            System.out.println("key : " + key + " , value : " + value);
+        });
+
+        /**
+         * putIfAbsent
+         */
+        Map<Integer, String> putIfAbsentMap = new HashMap<>();
+        putIfAbsentMap.putIfAbsent(1, "张三");
+        putIfAbsentMap.putIfAbsent(2, "李四");
+        //这一条已经存在的不会被覆盖
+        putIfAbsentMap.putIfAbsent(1, "王五");
+        putIfAbsentMap.forEach((key, value) -> {
+            System.out.println("key : " + key + " , value : " + value);
+        });
+    }
+
+    /**
+     * 测试putAll方法
+     */
+    private static void testPutAll() {
         Map map1 = new HashMap();      //定义Map集合对象
         map1.put("apple", "新鲜的苹果");     //向集合中添加对象
         map1.put("computer", "配置优良的计算机");
