@@ -38,6 +38,9 @@ public class Student implements Comparable<Student> {
         this.name = name;
     }
 
+    public Student() {
+    }
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.DEFAULT_STYLE);
