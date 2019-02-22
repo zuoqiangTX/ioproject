@@ -19,6 +19,16 @@ public class JsonTest {
         //transferStringToJson();
         //transferMapOrJson();
         transferListOrJson();
+        //转换为HashMap
+        transferToHashMap();
+
+
+    }
+
+    private static void transferToHashMap() {
+        String s = "{\"awardIds\":\"494\",\"recordId\":\"1182\",\"remark\":\"生成卡券包\",\"sign\":\"AE3CCA222142CD273E834F5D0949D2ED\",\"whoCost\":\"用户运营\"}";
+        JSONObject jsonObject = JSON.parseObject(s);
+        HashMap<String, String> params = JSON.parseObject(jsonObject.toJSONString(), HashMap.class);
     }
 
     /**
