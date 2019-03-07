@@ -8,6 +8,8 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 /**
+ * 利用反射 手写简易版的spring ioc 原理
+ *
  * @author baiyue
  */
 public class ClassPathXmlApplicationContext {
