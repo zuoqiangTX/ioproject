@@ -1,4 +1,4 @@
-package com.zuoqiang.test.Object;
+package com.zuoqiang.test.object;
 
 public class TestA {
 

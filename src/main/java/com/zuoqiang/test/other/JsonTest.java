@@ -51,7 +51,7 @@ public class JsonTest {
         list.add(new Student(3, 3, "o"));
         JSONArray ja = JSONArray.parseArray(JSON.toJSONString(list));
         //两种方法均可
-//        JSONArray ja = new JSONArray(new ArrayList<Object>(list));
+//        JSONArray ja = new JSONArray(new ArrayList<object>(list));
         System.out.println(ja.toJSONString());
         System.out.println("-------------------");
     }

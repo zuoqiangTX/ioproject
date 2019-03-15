@@ -1,4 +1,4 @@
-package com.zuoqiang.test.Object;
+package com.zuoqiang.test.object;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
