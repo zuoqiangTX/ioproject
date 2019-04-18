@@ -1,5 +1,7 @@
 package com.zuoqiang.test.orm;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 /**
  * 实体类
  */
@@ -24,5 +26,10 @@ public class User {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }
