@@ -33,4 +33,26 @@ public class BTest {
             System.out.println("真实处理订单的逻辑" + i);
         }
     }
+
+/**
+ * redis 扣库存 先找数据库有没有记录，没有记录的话走setnx分布式锁获取缓存，
+ * 没有的话走decr扣减数据，大于0继续往后走，然后数据库乐观锁保证不超
+ */
+//
+//    @Autowired
+//    private RedisComponent redisComponent;
+//
+//    @Test
+//    public void testRedis() throws InterruptedException {
+//        String x1 = "x1";
+//        redisComponent.set(x1, 100, 6);
+//        Thread.sleep(3000);
+//        Long value = redisComponent.get(x1, Long.class);
+//        if (value == null) {
+//            System.out.println("数据库里没有值了哦：");
+//        } else {
+//            System.out.println("减完以后的数量为：" + redisComponent.incr(x1));
+//        }
+//
+//    }
 }
