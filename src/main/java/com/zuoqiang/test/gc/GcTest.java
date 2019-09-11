@@ -54,6 +54,7 @@ public class GcTest {
      */
     public static void main(String[] args) {
         System.out.println("我在活着。。。。");
+        System.out.println("gc vm option:参数:" + "-Xms20M -Xmx20M -Xmn10M -verbose:gc -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+PrintGCDateStamps");
         System.gc();
         System.out.println("我要死了。。。。");
     }
