@@ -1,6 +1,6 @@
 package com.zuoqiang.test.orm;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * 实体类

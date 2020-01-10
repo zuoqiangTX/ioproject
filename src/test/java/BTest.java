@@ -1,4 +1,4 @@
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 身份证后6位的处理方法

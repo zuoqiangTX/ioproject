@@ -1,6 +1,6 @@
 package com.zuoqiang.test.apache;
 
-import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  * RandomStringUtils工具类的使用
