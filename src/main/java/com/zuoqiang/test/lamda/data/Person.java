@@ -18,4 +18,12 @@ public class Person {
     public Person() {
         System.out.println("Person类的无参构造函数执行了！");
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
