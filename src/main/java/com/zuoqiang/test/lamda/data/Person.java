@@ -1,13 +1,13 @@
 package com.zuoqiang.test.lamda.data;
 
-import lombok.EqualsAndHashCode;
+import lombok.Data;
 
 /**
  * @author zuoqiang
  * @version 1.0
  * @date 2020-03-04 17:05
  */
-@EqualsAndHashCode
+@Data
 public class Person {
     public String name;
     public int age;
