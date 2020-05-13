@@ -1,4 +1,4 @@
-package com.zuoqiang.test.dubbo;
+package com.zuoqiang.test.dubbo.ext;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package com.zuoqiang.test.dubbo;
+package com.zuoqiang.test.dubbo.ext;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
