@@ -1,6 +1,7 @@
 package com.zuoqiang.test.dubbo.demo.framework;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
@@ -12,6 +13,7 @@ import java.io.Serializable;
  */
 
 @Data
+@EqualsAndHashCode
 public class URL implements Serializable {
     private String hostName;
     private int port;

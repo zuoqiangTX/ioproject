@@ -1,7 +1,7 @@
 package com.zuoqiang.test.dubbo.demo.provider;
 
 import com.zuoqiang.test.dubbo.demo.framework.URL;
-import com.zuoqiang.test.dubbo.demo.protocol.http.HttpServer;
+import com.zuoqiang.test.dubbo.demo.protocol.dubbo.NettyServer;
 import com.zuoqiang.test.dubbo.demo.provider.api.HelloService;
 import com.zuoqiang.test.dubbo.demo.provider.impl.HelloServiceImpl;
 import com.zuoqiang.test.dubbo.demo.register.RemoteRegister;
@@ -26,7 +26,7 @@ public class Provider {
         RemoteRegister.register(HelloService.class.getName(), url);
 
         //启动应用[保证应用不关闭]
-        HttpServer server = new HttpServer();
+        NettyServer server = new NettyServer();
         server.start(url.getHostName(), url.getPort());
         System.in.read();
     }

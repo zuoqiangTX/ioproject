@@ -1,7 +1,7 @@
 package com.zuoqiang.test.dubbo.demo.framework;
 
 import com.zuoqiang.test.dubbo.demo.protocol.Invocation;
-import com.zuoqiang.test.dubbo.demo.protocol.http.HttpClient;
+import com.zuoqiang.test.dubbo.demo.protocol.dubbo.NettyClient;
 import com.zuoqiang.test.dubbo.demo.register.RemoteRegister;
 
 import java.lang.reflect.InvocationHandler;
@@ -20,13 +20,14 @@ public class Proxy {
                 new Class[]{interfaceClass}, new InvocationHandler() {
                     @Override
                     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                        HttpClient httpClient = new HttpClient();
+//                        HttpClient client = new HttpClient();
+                        NettyClient client = new NettyClient();
                         Invocation invocation = new Invocation(interfaceClass.getName(),
                                 method.getName(),
                                 method.getParameterTypes(),
                                 args);
                         URL url = RemoteRegister.getRandom(interfaceClass.getName());
-                        String result = httpClient.send(url.getHostName(), url.getPort(), invocation);
+                        String result = client.send(url.getHostName(), url.getPort(), invocation);
                         return result;
                     }
                 });
