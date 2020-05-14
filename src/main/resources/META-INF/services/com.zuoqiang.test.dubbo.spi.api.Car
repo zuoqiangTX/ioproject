@@ -1,2 +1,4 @@
 red=com.zuoqiang.test.dubbo.spi.impl.RedCar
 black=com.zuoqiang.test.dubbo.spi.impl.BlackCar
+com.zuoqiang.test.dubbo.spi.wrapper.CarWrapper1
+com.zuoqiang.test.dubbo.spi.wrapper.CarWrapper2

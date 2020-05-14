@@ -17,8 +17,8 @@ public class CarDemo {
         ExtensionLoader<Car> extensionLoader = ExtensionLoader.getExtensionLoader(Car.class);
         Car redCar = extensionLoader.getExtension("red");
         redCar.getColor();
-        Car black = extensionLoader.getExtension("black");
-        black.getColor();
+//        Car black = extensionLoader.getExtension("black");
+//        black.getColor();
         try {
             System.in.read();
         } catch (IOException e) {
