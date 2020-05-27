@@ -83,9 +83,8 @@ public class OtherTest {
                         }
                 );
             }
-        } while (CollectionUtils.isNotEmpty(accountSummaryList) && accountSummaryList.size() ==);
+        } while (CollectionUtils.isNotEmpty(accountSummaryList) && accountSummaryList.size() == patchSize);
     }
 
-}
 
 }
