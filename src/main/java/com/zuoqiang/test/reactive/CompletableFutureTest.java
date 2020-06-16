@@ -20,13 +20,26 @@ import java.util.concurrent.TimeUnit;
 public class CompletableFutureTest {
     public static void main(String[] args) throws Exception {
 //        createCompletableFuture();
-        notHaveReturnValue();
+//        notHaveReturnValue();
         HaveReturnValue();
         return;
     }
 
+    /**
+     * supplyAsync() 运行一个异步任务并且返回结果
+     *
+     * @throws Exception
+     */
     private static void HaveReturnValue() throws Exception {
-
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                throw new IllegalStateException(e);
+            }
+            return "Result of the asynchronous computation";
+        });
+        System.out.println(future.get());
     }
 
     /**
