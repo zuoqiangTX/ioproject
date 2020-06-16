@@ -1,8 +1,6 @@
 package com.zuoqiang.test.reactive;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @author zuoqiang
@@ -21,8 +19,28 @@ public class CompletableFutureTest {
     public static void main(String[] args) throws Exception {
 //        createCompletableFuture();
 //        notHaveReturnValue();
-        HaveReturnValue();
-        return;
+//        HaveReturnValue();
+        executorsParam();
+    }
+
+    /**
+     * CompletableFuture.get()方法是阻塞
+     * 创建一个线程池，并传递给其中一个方法
+     *
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    private static void executorsParam() throws ExecutionException, InterruptedException {
+        Executor executor = Executors.newFixedThreadPool(10);
+        CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                throw new IllegalStateException(e);
+            }
+            return "Result of the asynchronous computation";
+        }, executor);
+        System.out.println(future.get());
     }
 
     /**
