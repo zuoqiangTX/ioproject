@@ -15,17 +15,18 @@ import java.util.concurrent.*;
 public class FutureCallbackExample {
 
     public static void main(String[] args) throws Exception {
-//        nativeFuture();
-//        Thread.sleep(3000L);
-//
-//        guavaFuture();
-//        Thread.sleep(3000L);
-////
-//        guavaFuture2();
-//
-//        myTest();
+        nativeFuture();
+        Thread.sleep(3000L);
 
-        myTest2();
+        guavaFuture();
+        Thread.sleep(3000L);
+//
+        guavaFuture2();
+
+        myTest();
+
+//        错误实例
+//        myTest2();
     }
 
     /**
