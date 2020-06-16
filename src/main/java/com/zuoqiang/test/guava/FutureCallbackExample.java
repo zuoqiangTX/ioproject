@@ -3,6 +3,7 @@ package com.zuoqiang.test.guava;
 
 import com.google.common.util.concurrent.*;
 
+import java.io.IOException;
 import java.util.concurrent.*;
 
 /**
@@ -14,15 +15,70 @@ import java.util.concurrent.*;
 public class FutureCallbackExample {
 
     public static void main(String[] args) throws Exception {
-        nativeFuture();
-        Thread.sleep(3000L);
-
-        guavaFuture();
-        Thread.sleep(3000L);
+//        nativeFuture();
+//        Thread.sleep(3000L);
 //
-        guavaFuture2();
+//        guavaFuture();
+//        Thread.sleep(3000L);
+////
+//        guavaFuture2();
+//
+//        myTest();
 
-        myTest();
+        myTest2();
+    }
+
+    /**
+     * 错误实例ListenableFutureTask.create仅能用在futureTask中
+     *
+     * @throws IOException
+     */
+    private static void myTest2() throws IOException {
+//        ExecutorService executorService = Executors.newSingleThreadExecutor();
+//        Future<String> future = executorService.submit(() -> {
+//            System.out.println("i am work now!");
+//            try {
+//                TimeUnit.SECONDS.sleep(10);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            return "1";
+//        });
+//        ListenableFutureTask task = ListenableFutureTask.create(future);
+//        task.addListener(() -> {
+//            try {
+//                System.out.println(String.format("拿到结果%s", task.get()));
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }, Executors.newSingleThreadExecutor(new ThreadFactory() {
+//            private static final String THREAD_FORAMT = "自定义线程池-子线程-%d";
+//            private final AtomicLong atomicLong = new AtomicLong();
+//
+//            @Override
+//            public Thread newThread(Runnable r) {
+//                String name = String.format(THREAD_FORAMT, atomicLong.getAndIncrement());
+//                return new Thread(r, name);
+//            }
+//        }));
+//        Futures.addCallback(task, new FutureCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                try {
+//                    System.out.println(String.format("拿到结果%s", task.get()));
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (ExecutionException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Throwable t) {
+//
+//            }
+//        });
+        System.in.read();
     }
 
     private static void myTest() {
