@@ -206,8 +206,8 @@ public class FutureCallbackExample {
                     public void onFailure(Throwable t) {
                         System.out.println(String.format("异常结果为:%s", t.getMessage()));
                     }
-                }
-        );
+                },
+                Executors.newSingleThreadExecutor());
         // 主线程可以继续执行,异步完成后会执行注册的监听器任务.
         System.out.println("[" + Thread.currentThread().getName() + "]: guavaFuture2执行结束");
         guavaExecutor2.shutdown();

@@ -28,3 +28,4 @@ hs_err_pid*
 /.idea/
 target
 io-project.iml
+src/main/resources/.DS_Store

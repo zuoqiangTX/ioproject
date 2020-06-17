@@ -32,9 +32,9 @@ public class ListenableFutureDemo {
         //同步获取结果
         testListenableFuture();
         //异步获取结果 自己起一个线程来查询状态
-//        testAsyncByMine();
+        testAsyncByMine();
         //异步直接采用ListenableFuture方法
-//        testAsyncByGuava();
+        testAsyncByGuava();
     }
 
     private static void testAsyncByGuava() {
@@ -46,8 +46,7 @@ public class ListenableFutureDemo {
             @Override
             public void onSuccess(Integer result) {
                 System.out
-                        .println("调用回调得到结果 "
-                                + result);
+                        .println("调用回调得到结果 " + result);
                 executorService.shutdown();
             }
 
@@ -55,7 +54,7 @@ public class ListenableFutureDemo {
             public void onFailure(Throwable t) {
                 t.printStackTrace();
             }
-        });
+        }, Executors.newSingleThreadExecutor());
         System.out.println("证明程序没有阻塞哦");
     }
 
