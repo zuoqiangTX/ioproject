@@ -1,5 +1,7 @@
 package com.zuoqiang.test.other;
 
+import com.zuoqiang.test.design.producer.BlockingQueue;
+
 import java.util.concurrent.TimeUnit;
 
 public class ThreadTest {

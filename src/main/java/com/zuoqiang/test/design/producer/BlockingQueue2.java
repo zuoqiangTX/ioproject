@@ -1,9 +1,7 @@
-package com.zuoqiang.test.other;
+package com.zuoqiang.test.design.producer;
 
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class BlockingQueue2 {
 

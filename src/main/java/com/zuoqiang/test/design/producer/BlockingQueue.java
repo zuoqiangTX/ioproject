@@ -1,7 +1,6 @@
-package com.zuoqiang.test.other;
+package com.zuoqiang.test.design.producer;
 
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 

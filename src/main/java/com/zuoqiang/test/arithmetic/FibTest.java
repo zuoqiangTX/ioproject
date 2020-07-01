@@ -1,4 +1,4 @@
-package com.zuoqiang.test.other;
+package com.zuoqiang.test.arithmetic;
 
 /**
  * 测试递归
@@ -16,7 +16,7 @@ package com.zuoqiang.test.other;
  *
  * @author zuoqiang
  */
-public class TestDiGui {
+public class FibTest {
     public static int fbi(int num) {
         if (num == 1 || num == 2) {
             return 1;

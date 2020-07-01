@@ -1,4 +1,4 @@
-package com.zuoqiang.test.other.compator;
+package com.zuoqiang.test.jdk.compator;
 
 import com.google.common.collect.Lists;
 
