@@ -1,6 +1,6 @@
 package thread;
 
-import com.zuoqiang.test.orm.User;
+import com.zuoqiang.test.customer.orm.User;
 
 public class TestForMethod {
     public static void main(String[] args) {

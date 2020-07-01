@@ -1,6 +1,6 @@
 import com.google.common.collect.Lists;
-import com.zuoqiang.test.commons.BaseQuery;
-import com.zuoqiang.test.orm.User;
+import com.zuoqiang.test.customer.orm.User;
+import com.zuoqiang.test.tools.commons.BaseQuery;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.List;

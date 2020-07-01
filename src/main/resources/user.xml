@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-    <bean id="user1" class="com.zuoqiang.test.ioc.UserEntity">
+    <bean id="user1" class="com.zuoqiang.test.customer.ioc.UserEntity">
         <property name="userId" value="0001"></property>
         <property name="userName" value="左左"></property>
     </bean>
-    <bean id="user2" class="com.zuoqiang.test.ioc.UserEntity">
+    <bean id="user2" class="com.zuoqiang.test.customer.ioc.UserEntity">
         <property name="userId" value="0002"></property>
         <property name="userName" value="周周"></property>
     </bean>

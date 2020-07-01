@@ -1,7 +1,7 @@
 package thread;
 
 import com.google.common.collect.Lists;
-import com.zuoqiang.test.orm.User;
+import com.zuoqiang.test.customer.orm.User;
 
 import java.util.List;
 
