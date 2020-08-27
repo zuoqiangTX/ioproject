@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2020/8/27 4:48 下午
  */
 
-public class StopWatchTest {
+public class StopWatchCommonsLang3Test {
     public static void main(String[] args) throws Exception {
         //创建后立即start，常用
 //        StopWatch watch = StopWatch.createStarted();
