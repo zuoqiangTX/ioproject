@@ -65,8 +65,7 @@ public class TestJob {
             log.info("测试job>>>>上一个 JOB 还在执行...refuse now");
             return;
         }
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
+        StopWatch stopWatch = StopWatch.createStarted();
         log.info("测试job>>>任务开始执行>>>>>>>>>>>>>>>start time:{}", DateUtil.getDateTimeStr(new Date(), "yyyy-MM-dd HH:mm:ss"));
         try {
             Counter counter = new Counter();
@@ -82,6 +81,6 @@ public class TestJob {
             isStarted.compareAndSet(true, false);
         }
         log.info("测试job>>>>定时任务结束>>>>>>>>>>>>>>>end time:{},cost:{}s", DateUtil.getDateTimeStr(new Date(), "yyyy-MM-dd HH:mm:ss"),
-                stopWatch.getTime() / 1000);
+                stopWatch.getTime(TimeUnit.SECONDS));
     }
 }
