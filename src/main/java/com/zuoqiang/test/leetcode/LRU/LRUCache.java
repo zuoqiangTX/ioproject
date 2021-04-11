@@ -7,7 +7,7 @@ import java.util.Map;
  * @author zuoqiang
  * @version 1.0
  * @description 运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制 。
- * 实现 LRUCache.readme
+ * 实现 readme
  * @date 2021/4/11 11:41 下午
  */
 
