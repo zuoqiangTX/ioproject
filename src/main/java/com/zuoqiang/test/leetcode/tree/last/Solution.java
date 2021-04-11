@@ -1,5 +1,4 @@
-package com.zuoqiang.test.leetcode.tree.middle;
-
+package com.zuoqiang.test.leetcode.tree.last;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -9,11 +8,22 @@ import java.util.List;
 /**
  * @author zuoqiang
  * @version 1.0
- * @description todo
- * @date 2021/4/12 2:17 上午
+ * @description 后序遍历
+ * while( 栈非空 || p 非空)
+ * {
+ * if( p 非空)
+ * {
+ * <p>
+ * }
+ * else
+ * {
+ * <p>
+ * }
+ * }
+ * @date 2021/4/12 3:07 上午
  */
 
-public class MiddleTree {
+public class Solution {
     public class TreeNode {
         int val;
         TreeNode left;
@@ -33,7 +43,7 @@ public class MiddleTree {
         }
     }
 
-    public List<Integer> inorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         if (root == null) {
             return res;
@@ -43,13 +53,18 @@ public class MiddleTree {
         while (!stack.isEmpty() || node != null) {
             while (node != null) {
                 stack.push(node);
-                //一直往进加
                 node = node.left;
-
             }
-            node = stack.pop();
-            res.add(node.val);
-            node = node.right;
+            node = stack.peek();
+            if (node.right == null || node.right == root) {
+                res.add(node.val);
+                root = node;
+                stack.pop();
+                node = null;
+            } else {
+                node = node.right;
+            }
+
         }
         return res;
     }
