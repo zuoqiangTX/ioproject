@@ -1,0 +1,54 @@
+FS（深度优先搜索）和 BFS（广度优先搜索）
+
+解题思路
+
+本文将会讲解为什么这道题适合用广度优先搜索（BFS），以及 BFS 适用于什么样的场景。
+
+DFS（深度优先搜索）和 BFS（广度优先搜索）就像孪生兄弟，提到一个总是想起另一个。然而在实际使用中，我们用 DFS 的时候远远多于 BFS。那么，是不是 BFS 就没有什么用呢？
+
+如果我们使用 DFS/BFS 只是为了遍历一棵树、一张图上的所有结点的话，那么 DFS 和 BFS 的能力没什么差别，我们当然更倾向于更方便写、空间复杂度更低的 DFS 遍历。不过，某些使用场景是 DFS 做不到的，只能使用 BFS 遍历。这就是本文要介绍的两个场景：「层序遍历」、「最短路径」。
+
+本文包括以下内容：
+
+DFS 与 BFS 的特点比较
+BFS 的适用场景
+如何用 BFS 进行层序遍历
+如何用 BFS 求解最短路径问题
+DFS 与 BFS
+
+让我们先看看在二叉树上进行 DFS 遍历和 BFS 遍历的代码比较。
+
+DFS 遍历使用递归：
+
+Java
+
+void dfs(TreeNode root) {
+    if (root == null) {
+        return;
+    }
+    dfs(root.left);
+    dfs(root.right);
+}
+BFS 遍历使用队列数据结构：
+
+Java
+
+void bfs(TreeNode root) {
+    Queue<TreeNode> queue = new ArrayDeque<>();
+    queue.add(root);
+    while (!queue.isEmpty()) {
+        TreeNode node = queue.poll(); // Java 的 pop 写作 poll()
+        if (node.left != null) {
+            queue.add(node.left);
+        }
+        if (node.right != null) {
+            queue.add(node.right);
+        }
+    }
+}
+
+
+作者：nettee
+链接：https://leetcode-cn.com/problems/binary-tree-level-order-traversal/solution/bfs-de-shi-yong-chang-jing-zong-jie-ceng-xu-bian-l/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
