@@ -16,34 +16,35 @@ public class QuickSortMy {
         System.out.println(Arrays.toString(arr));
     }
 
-    private static void quickSort(int[] arr, int left, int right) {
-        if (left > right) {
+    private static void quickSort(int[] num, int left, int right) {
+        //如果left等于right，即数组只有一个元素，直接返回
+        if (left >= right) {
             return;
         }
-        int base = arr[left];
+        //设置最左边的元素为基准值
+        int base = num[left];
+        //数组中比key小的放在左边，比key大的放在右边，key值下标为i
         int i = left;
         int j = right;
-        while (i != j) {
-            //先从右边
-            while (arr[j] >= base && i < j) {
+        while (i < j) {
+            //j向左移，直到遇到比key小的值
+            while (num[j] >= base && i < j) {
                 j--;
             }
-            while (arr[j] <= base && i < j) {
+            //i向右移，直到遇到比key大的值
+            while (num[i] <= base && i < j) {
                 i++;
             }
-            //上面的循环结束表示找到了位置或者(i>=j)了，交换两个数在数组中的位置
+            //i和j指向的元素交换
             if (i < j) {
-                //交互位置
-                int tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
+                int temp = num[i];
+                num[i] = num[j];
+                num[j] = temp;
             }
         }
-
-        //交互第一个位置和中间位置
-        arr[left] = arr[i];
-        arr[i] = base;
-        quickSort(arr, left, i - 1);
-        quickSort(arr, i + 1, right);
+        num[left] = num[i];
+        num[i] = base;
+        quickSort(num, left, i - 1);
+        quickSort(num, i + 1, right);
     }
 }
