@@ -113,10 +113,10 @@ public class Test {
             //先比较是否特殊情况
             String t1Str = transferNumToString(t1);
             String t2Str = transferNumToString(t2);
-            int[] t1Array = t1.stream().mapToInt(Ticket::getNum).toArray();
+            int[] t1Array = t1.stream().mapToInt(Ticket::getColor).toArray();
+            int[] t2Array = t2.stream().mapToInt(Ticket::getColor).toArray();
             int t1Sum = t1.stream().mapToInt(Ticket::getNum).sum();
             int t2Sum = t1.stream().mapToInt(Ticket::getNum).sum();
-            int[] t2Array = t2.stream().mapToInt(Ticket::getNum).toArray();
             if (t1Str.equals(t2Str) && isSameColor(t1Array) && isSameColor(t2Array)) {
                 //花色&&大小相同
                 return PLAYER_SANE;
