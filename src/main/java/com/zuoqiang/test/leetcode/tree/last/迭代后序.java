@@ -23,7 +23,7 @@ import java.util.List;
  * @date 2021/4/12 3:07 上午
  */
 
-public class Solution {
+public class 迭代后序 {
     public class TreeNode {
         int val;
         TreeNode left;

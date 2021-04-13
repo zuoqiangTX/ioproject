@@ -1,5 +1,4 @@
-package com.zuoqiang.test.leetcode.tree.middle;
-
+package com.zuoqiang.test.leetcode.tree.pre;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -10,10 +9,10 @@ import java.util.List;
  * @author zuoqiang
  * @version 1.0
  * @description todo
- * @date 2021/4/12 2:17 上午
+ * @date 2021/4/12 2:49 上午
  */
 
-public class MiddleTree {
+public class 迭代前序 {
     public class TreeNode {
         int val;
         TreeNode left;
@@ -33,25 +32,22 @@ public class MiddleTree {
         }
     }
 
-    public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        if (root == null) {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList();
+        if (res == null) {
             return res;
         }
-        Deque<TreeNode> stack = new LinkedList<>();
+        Deque<TreeNode> stack = new LinkedList();
         TreeNode node = root;
         while (!stack.isEmpty() || node != null) {
             while (node != null) {
+                res.add(node.val);
                 stack.push(node);
-                //一直往进加
                 node = node.left;
-
             }
             node = stack.pop();
-            res.add(node.val);
             node = node.right;
         }
         return res;
     }
-
 }
