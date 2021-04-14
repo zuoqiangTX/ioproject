@@ -2,6 +2,7 @@ package com.zuoqiang.test.leetcode;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import javafx.util.Pair;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
@@ -10,6 +11,7 @@ import org.apache.commons.lang3.tuple.Triple;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -260,15 +262,15 @@ public class Test {
          * @return
          */
         public static Boolean isSameColor(int[] nums) {
-            int res = 0;
-            for (int i : nums) {
-                res ^= i;
+            Set<String> set = Sets.newHashSet();
+            set.add(String.valueOf(nums[0]));
+            for (int i = 1; i < nums.length; i++) {
+                int num = nums[i];
+                if (!set.contains(String.valueOf(num))) {
+                    return false;
+                }
             }
-            if (res == 0) {
-                //相同的数字异或为0
-                return true;
-            }
-            return false;
+            return true;
         }
 
 
