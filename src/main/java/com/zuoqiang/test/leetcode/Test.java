@@ -8,7 +8,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -80,35 +79,29 @@ public class Test {
             List<Ticket> t1 = player1.getTicketList();
             List<Ticket> t2 = player2.getTicketList();
             //先内部排序 按照大小[A, K, Q, J, T（代表10）, 9, 8, 7, 6, 5, 4, 3, 2]
-            Collections.sort(t1, new Comparator<Ticket>() {
-                @Override
-                public int compare(Ticket o1, Ticket o2) {
-                    if (o1.num == 1 && o2.num == 1) {
-                        return 0;
-                    }
-                    if (o1.num == 1 && o2.num > 1) {
-                        return -1;
-                    }
-                    if (o2.num == 1 && o1.num > 1) {
-                        return 1;
-                    }
-                    return o2.num - o1.num;
+            Collections.sort(t1, (o1, o2) -> {
+                if (o1.num == 1 && o2.num == 1) {
+                    return 0;
                 }
+                if (o1.num == 1 && o2.num > 1) {
+                    return -1;
+                }
+                if (o2.num == 1 && o1.num > 1) {
+                    return 1;
+                }
+                return o2.num - o1.num;
             });
-            Collections.sort(t2, new Comparator<Ticket>() {
-                @Override
-                public int compare(Ticket o1, Ticket o2) {
-                    if (o1.num == 1 && o2.num == 1) {
-                        return 0;
-                    }
-                    if (o1.num == 1 && o2.num > 1) {
-                        return -1;
-                    }
-                    if (o2.num == 1 && o1.num > 1) {
-                        return 1;
-                    }
-                    return o2.num - o1.num;
+            Collections.sort(t2, (o1, o2) -> {
+                if (o1.num == 1 && o2.num == 1) {
+                    return 0;
                 }
+                if (o1.num == 1 && o2.num > 1) {
+                    return -1;
+                }
+                if (o2.num == 1 && o1.num > 1) {
+                    return 1;
+                }
+                return o2.num - o1.num;
             });
             System.out.println("" + t1);
             System.out.println(t2);
