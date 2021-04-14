@@ -139,7 +139,7 @@ public class Test {
             // 都是顺子(花色相同大小相同前面已经过滤了)
             if (isStraight(t1) && isStraight(t2)) {
                 //1)先比较顺子大(直接计算大小的和，哪个大哪个就是（因为已经是顺子了）)
-                if (t1Sum == t1Sum) {
+                if (t1Sum == t2Sum) {
                     Boolean sameColorT1 = isSameColor(t1Array);
                     if (sameColorT1) {
                         return PLAYER_ONE_BIG;
