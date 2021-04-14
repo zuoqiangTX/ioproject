@@ -65,6 +65,7 @@ public class TicketTest {
     public static class Game {
 
         private static final String ROYAL_FLUSH = "13121110";
+        private static final String SHUFFLE = "113121110987654321";
         private static final int PLAYER_ONE_BIG = 1;
         private static final int PLAYER_TWO_BIG = -1;
         private static final int PLAYER_SANE = 0;
@@ -246,8 +247,8 @@ public class TicketTest {
          * @return
          */
         private static boolean isStraight(List<Ticket> t) {
-            //todo 判断是否为顺子
-            return true;
+            // 判断是否为顺子，判断字符串是否包含
+            return SHUFFLE.contains(transferNumToString(t));
         }
 
         /**
@@ -294,12 +295,11 @@ public class TicketTest {
 
     public static void main(String[] args) {
         List<Ticket> ticket1 = Lists.newArrayList();
-        ticket1.add(new Ticket(1, 1));
-        ticket1.add(new Ticket(13, 2));
-        ticket1.add(new Ticket(2, 3));
-        ticket1.add(new Ticket(3, 4));
-        ticket1.add(new Ticket(4, 4));
-        ticket1.add(new Ticket(1, 2));
+        ticket1.add(new Ticket(13, 1));
+        ticket1.add(new Ticket(12, 2));
+        ticket1.add(new Ticket(11, 3));
+        ticket1.add(new Ticket(10, 4));
+        ticket1.add(new Ticket(1, 4));
         //todo 省略加入player1的牌
         Player player1 = new Player(ticket1);
         List<Ticket> ticket2 = Lists.newArrayList();
@@ -313,5 +313,6 @@ public class TicketTest {
         } else {
             System.out.println("一样大");
         }
+
     }
 }
