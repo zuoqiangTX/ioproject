@@ -80,33 +80,35 @@ public class Test {
             List<Ticket> t2 = player2.getTicketList();
             //先内部排序 按照大小[A, K, Q, J, T（代表10）, 9, 8, 7, 6, 5, 4, 3, 2]
             Collections.sort(t1, (o1, o2) -> {
-                if (o1.num == 1 && o2.num == 1) {
-                    return 0;
-                }
-                if (o1.num == 1 && o2.num > 1) {
-                    return -1;
-                }
-                if (o2.num == 1 && o1.num > 1) {
-                    return 1;
-                }
-                return o2.num - o1.num;
+                return compareTicket(o1, o2);
             });
             Collections.sort(t2, (o1, o2) -> {
-                if (o1.num == 1 && o2.num == 1) {
-                    return 0;
-                }
-                if (o1.num == 1 && o2.num > 1) {
-                    return -1;
-                }
-                if (o2.num == 1 && o1.num > 1) {
-                    return 1;
-                }
-                return o2.num - o1.num;
+                return compareTicket(o1, o2);
             });
             System.out.println("" + t1);
             System.out.println(t2);
             //认为一样大
             return compare(t1, t2);
+        }
+
+        /**
+         * 当o1>o2返回负数
+         *
+         * @param o1
+         * @param o2
+         * @return
+         */
+        private static int compareTicket(Ticket o1, Ticket o2) {
+            if (o1.num == 1 && o2.num == 1) {
+                return 0;
+            }
+            if (o1.num == 1 && o2.num > 1) {
+                return -1;
+            }
+            if (o2.num == 1 && o1.num > 1) {
+                return 1;
+            }
+            return o2.num - o1.num;
         }
 
         /**
