@@ -8,7 +8,6 @@ import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Triple;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -81,12 +80,8 @@ public class TicketTest {
             List<Ticket> t1 = player1.getTicketList();
             List<Ticket> t2 = player2.getTicketList();
             //先内部排序 按照大小[A, K, Q, J, T（代表10）, 9, 8, 7, 6, 5, 4, 3, 2]
-            Collections.sort(t1, (o1, o2) -> {
-                return compareTicket(o1, o2);
-            });
-            Collections.sort(t2, (o1, o2) -> {
-                return compareTicket(o1, o2);
-            });
+            t1.sort(Game::compareTicket);
+            t2.sort(Game::compareTicket);
             System.out.println("" + t1);
             System.out.println(t2);
             //认为一样大
