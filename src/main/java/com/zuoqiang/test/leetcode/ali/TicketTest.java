@@ -1,4 +1,4 @@
-package com.zuoqiang.test.leetcode;
+package com.zuoqiang.test.leetcode.ali;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -40,7 +40,7 @@ import java.util.stream.Collectors;
  * @date 2021/4/13 8:14 下午
  */
 
-public class Test {
+public class TicketTest {
     @Data
     public static class Ticket {
         //大小1-13
