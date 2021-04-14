@@ -83,21 +83,35 @@ public class Test {
             Collections.sort(t1, new Comparator<Ticket>() {
                 @Override
                 public int compare(Ticket o1, Ticket o2) {
-                    if (o1.num == 1) {
+                    if (o1.num == 1 && o2.num == 1) {
+                        return 0;
+                    }
+                    if (o1.num == 1 && o2.num > 1) {
+                        return -1;
+                    }
+                    if (o2.num == 1 && o1.num > 1) {
                         return 1;
                     }
-                    return o1.num - o2.num;
+                    return o2.num - o1.num;
                 }
             });
             Collections.sort(t2, new Comparator<Ticket>() {
                 @Override
                 public int compare(Ticket o1, Ticket o2) {
-                    if (o1.num == 1) {
+                    if (o1.num == 1 && o2.num == 1) {
+                        return 0;
+                    }
+                    if (o1.num == 1 && o2.num > 1) {
+                        return -1;
+                    }
+                    if (o2.num == 1 && o1.num > 1) {
                         return 1;
                     }
-                    return o1.num - o2.num;
+                    return o2.num - o1.num;
                 }
             });
+            System.out.println("" + t1);
+            System.out.println(t2);
             //认为一样大
             return compare(t1, t2);
         }
@@ -288,8 +302,12 @@ public class Test {
 
     public static void main(String[] args) {
         List<Ticket> ticket1 = Lists.newArrayList();
-        ticket1.add(new Ticket(1, 0));
-        ticket1.add(new Ticket(2, 0));
+        ticket1.add(new Ticket(1, 1));
+        ticket1.add(new Ticket(13, 2));
+        ticket1.add(new Ticket(2, 3));
+        ticket1.add(new Ticket(3, 4));
+        ticket1.add(new Ticket(4, 4));
+        ticket1.add(new Ticket(1, 2));
         //todo 省略加入player1的牌
         Player player1 = new Player(ticket1);
         List<Ticket> ticket2 = Lists.newArrayList();
