@@ -15,5 +15,6 @@ public class TwoArray {
         int[][] a = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
         log.info("二维数组的宽度:{}", a[0].length);
         log.info("二维数组的高度:{}", a.length);
+        log.info("定位结果为:{},2代表第二行，第三列", a[2][3]);
     }
 }
