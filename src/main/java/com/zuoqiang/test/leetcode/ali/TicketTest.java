@@ -3,9 +3,9 @@ package com.zuoqiang.test.leetcode.ali;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import javafx.util.Pair;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.List;
@@ -221,10 +221,10 @@ public class TicketTest {
             for (String key : countMap.keySet()) {
                 int num = countMap.get(key);
                 if (num == 4) {
-                    return new Pair<>(true, Integer.parseInt(key));
+                    return Pair.of(true, Integer.parseInt(key));
                 }
             }
-            return new Pair<>(false, 0);
+            return Pair.of(false, 0);
         }
 
         /**

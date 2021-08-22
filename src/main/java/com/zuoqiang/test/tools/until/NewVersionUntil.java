@@ -1,7 +1,7 @@
 package com.zuoqiang.test.tools.until;
 
-import javafx.util.Pair;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  * @author zuoqiang
@@ -19,8 +19,8 @@ public class NewVersionUntil {
     private static final String REGEX = "\\.";
     private static final String INIT_VERSION = "1.0.0";
     private static final String SPLIT_CHAR = ".";
-    private static final Pair<Integer, Integer> THREE_LEVEL_VERSION = new Pair<>(2, 21);
-    private static final Pair<Integer, Integer> TWO_LEVEL_VERSION = new Pair<>(1, 11);
+    private static final Pair<Integer, Integer> THREE_LEVEL_VERSION = Pair.of(2, 21);
+    private static final Pair<Integer, Integer> TWO_LEVEL_VERSION =  Pair.of(1, 11);
 
     private static String autoUpgradeVersion(String version) {
         if (StringUtils.isBlank(version)) {
